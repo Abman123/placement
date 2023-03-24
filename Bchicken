@@ -1,0 +1,99 @@
+<html>
+    <title> Baikandy </title>
+    <link rel="stylesheet" href="style.css">
+    <body>
+        <center>
+            <h1 class="rd">Baikandy Chicken shop</h1>
+            <h1  class="rd">Baikandy Chicken shop</h1>
+            <h1 class="bl">Baikandy Chicken shop</h1>
+            <h1 class="bl">Baikandy Chicken shop</h1>
+            <h1 id="gr">Baikandy Chicken shop</h1>
+        </center>
+    <p style="color: rgb(0, 0, 0);"> Try our fresh chicken and mutton at affordable prize <br> My great grandfather created this business in 1963 an he is very famous for hia chicekn and mutton.</p>
+    <a href="https://www.google.com/webhp?hl=en&sa=X&ved=0ahUKEwiSqMj5s_H9AhWWRmwGHc7UDY8QPAgI" target="blank">click here to order chicken from google</a>
+    <br>
+    <a href="https://web.whatsapp.com/">click here to order mutton from whatsapp</a> <br><br>
+    <img src="C:\Users\ishran ali\Downloads\licensed-image.jpg" width="500px" height="500px"><br>
+    <h2 style="color: blue; text-align: center;"> Type your review</h2>
+    <label> Name</label><br>
+    <input type="text" placeholder="Enter your name"><br>
+    <label>Chose your city</label><br>
+    <select>
+        <option>---select city---</option>
+        <option>Talapady</option>
+        <option>Baikandy</option>
+        <option>Mangalore</option>
+    </select><br>
+    <label> Upload file</label><br>
+    <input type="file"><br>
+    <label>Type password</label><Br>
+    <input type="password" placeholder="Enter the password"><br>
+    <label>Date of order</label><br>
+    <input type="date"><br>
+    <label> time of order</label><br>
+    <input type="time"><br><br>
+    <h3 style="color: blue;"><center><b>MENU</b></center></h3>
+    <label><i>Updated menu</i></label><br>
+    <ul>
+        <li>Chicken 250rs </li>
+        <li>Mutton 500rs></li>
+        <li>sheep 600rs</li>
+    </ul>
+    <ol type="a">
+        <li>Chicken 250rs </li>
+        <li>Mutton 500rs></li>
+        <li>sheep 600rs</li>
+    </ol>
+<p>Our main Formula is (a+b)<sup>2</sup>=a<sup>2</sup>+b<sup>2</sup>+2ab</p>
+<p>Our main Ingredient is Water i.e. H<sub>2</sub>o</p>
+<p> Copy rights reserved &copy;</p><br>
+<h4 id="num">0</h4>
+<button onclick="inc()">Place order</button>
+<marquee direction="right">Thank you for placing the order</marquee>
+<label> Business partners</label><br>
+<table border="2">
+    <tr>
+        <thead>
+            <td>Name</td>
+            <td>Branch</td>
+            <td>place</td>
+            <td>no.</td>
+        </thead>
+    </tr>
+    <tr>
+            <td>Ideal Chicken</td>
+            <td>Mangalore</td>
+            <td>Mangalore</td>
+            <td>8455828216</td>
+    </tr>
+    <tr>
+        <td>Bharath Chicken</td>
+        <td>Puttur</td>
+        <td>Puttur</td>
+        <td>9854152662</td>   
+</tr>
+<tr>
+    <td>Shes Chicken</td>
+    <td>Baikampady</td>
+    <td>Baikampady</td>
+    <td>985552182</td>   
+</tr>
+</table>
+<br>
+<div>
+    <p> Special offer for students</p>
+    <p> Special offer for students</p>
+    <p> Special offer for students</p>
+</div>
+<script>
+    let a=document.getElementById("num")
+    let b=0
+    function inc()
+    {
+        b++
+        a.innerText=b
+    }
+  
+</script>
+</body>
+</html>
