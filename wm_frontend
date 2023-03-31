@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Wallmart</title>
+</head>
+<style>
+    button{
+        width: 100%;
+        background-color: blue;
+        color :white;
+        border: none;
+        border-radius: 5px;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="row">
+            <h1 style="text-align: center;">WalMart Visitor Counter</h1>
+        </div>
+        <div class="row">
+            <div class = "col-6">
+                <img src="walmart.webp" style="margin-top: 80px;
+                    width: 500px ; height :300px;">
+            </div>
+            <div class="col-6"><br><br><br>
+                <label>Gender</label><br>
+                <select style="width: 100%;"id="gender">
+                    <option value="0">--Select--</option>
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
+                </select><br>
+                <span id="errgender" style="color: red;"></span>
+                
+                <br><label>Age Group</label><br>
+                <select style="width: 100%" id="age">
+                    <option value="0">--select--</option>
+                    <option value="1">Kids</option>
+                    <option value="2">Teens</option>
+                    <option value="3">Adults</option>
+                    <option value="4">Senior citizen</option>
+                </select>
+                <br>
+                <span id="errAge" style="color: red;"></span><br>
+                <label>Comments</label><br>
+                <textarea style="width: 100%" id="comments"></textarea>
+                <br>
+                <span id="errComment" style="color: red;"></span>
+                <button onclick = "validate()">Submit</button>
+                <span id="sucessmsg"></span>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function validate (){
+        let gender = document.getElementById("gender").value
+        let errgen = document.getElementById("errgender")
+        if (gender == 0) {
+            errgen.innerHTML = "please enter the gender"
+            return false
+        } else {
+            errgen.innerHTML = ''
+        }
+        let age = document.getElementById("age").value
+        let errage = document.getElementById("errAge")
+        if (age == 0) {
+            errage.innerHTML = "please enter the Age Group"
+            return false
+        } else {
+            errage.innerHTML = ''
+        }
+        let comment = document.getElementById("comments").value
+        let regxcomment = /^[A-Za-z0-9 ]+$/
+
+        if (comment) {
+            let validcomment = comment.match(regxcomment)
+            let errComment = document.getElementById("errComment")
+
+            if (!validcomment) {
+
+                errComment.innerHTML = "please enter only Alphanumeric data"
+                return false
+            } else {
+                errComment.innerHTML = ''
+
+            }
+
+        }
+        var xhttp = new XMLHttpRequest()
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 & this.status == 200) {
+                let sucess = document.getElementById("sumsg")
+                sucess.innerHTML = this.responseText
+            }
+        };
+        xhttp.open("POST", "http://localhost:5000/add-visitors", true);
+    }
+        var xhttp= new XMLHttpRequest()
+        xhttp.onreadystatechange= function() 
+        {
+            if(this.readystate==4 && this.readystate==200)
+            {
+                var jsondata= JSON.parse(this.responseText)
+                var visitorToday= jsondata[0].today_visitors
+                let visitortoday= document.getElementById("visitorToday")
+                visitortoday.innerHTML =todayVisitorsData;
+            }
+        };
+        xhttp.open("GET","http://localhost:500/add-visitors",true)
+        xhttp.send()
+
+        var xhttpTotalvisitor= new XMLHttpRequest()
+        xhttpTotalvisitor.onreadystatechange= function() 
+        {
+            if(this.readystate==4 && this.readystate==200)
+            {
+                var jsondata= JSON.parse(this.responseText)
+                var Totalvisitor= jsondata[0].total_visitors
+                let totalvisitor= document.getElementById("totalvistor")
+                totalvisitor.innerHTML =TotalVisitorsData;
+            }
+        };
+        xhttp.open("GET","http://localhost:500/add-visitors",true)
+        xhttp.send()
+
+        var xhttpMalevisitor= new XMLHttpRequest()
+        xhttpMalevisitor.onreadystatechange= function() 
+        {
+            if(this.readystate==4 && this.readystate==200)
+            {
+                var jsondata= JSON.parse(this.responseText)
+                var Malevisitor= jsondata[0].male_visitors
+                let malevisitor= document.getElementById("malevisitor")
+                malevisitor.innerHTML =MaleVisitorsData;
+            }
+        };
+        xhttp.open("GET","http://localhost:500/add-visitors",true)
+        xhttp.send()
+
+        var xhttpFemalevisitor= new XMLHttpRequest()
+        xhttPFemalevisitor.onreadystatechange= function() 
+        {
+            if(this.readystate==4 && this.readystate==200)
+            {
+                var jsondata= JSON.parse(this.responseText)
+                var Femalevisitor= jsondata[0].male_visitors
+                let femalevisitor= document.getElementById("femalevisitor")
+                femalevisitor.innerHTML =FemaleVisitorsData;
+            }
+        };
+        xhttp.open("GET","http://localhost:500/add-visitors",true)
+        xhttp.send()
+</script>
+</html>
